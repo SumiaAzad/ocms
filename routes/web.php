@@ -23,10 +23,12 @@ Route::get('/', function () {
     return view('admin.master');
 });
   Route::get('/admin/dashboard',[DashboardController::class,'dash'])->name('admin.dashboard');
- Route::get('/admin/student',[StudentsController::class,'Student'])->name('admin.student');
- Route::get('/admin/student/add',[StudentsController::class,'StudentAdd'])->name('admin.student.add');
+ Route::get('/admin/student',[StudentsController::class,'student'])->name('admin.student');
+ Route::get('/admin/student/add',[StudentsController::class,'studentAdd'])->name('admin.student.add');
  Route::post('/admin/student/store',[StudentsController::class,'store'])->name('admin.student.store');
  Route::get('/admin/teacher',[TeachersController::class,'teacher'])->name('admin.teacher');
+ Route::get('/admin/teacher/add',[TeachersController::class,'teacherAdd'])->name('admin.teacher.add');
+ Route::post('/admin/teacher/store',[TeachersController::class,'store'])->name('admin.teacher.store');
  Route::get('/admin/course',[CourseController::class,'course'])->name('admin.course');
  Route::get('/admin/class',[ClassController::class,'class'])->name('admin.class');
  Route::get('/admin/exam',[ExamController::class,'exam'])->name('admin.exam');

@@ -7,7 +7,8 @@ use App\Models\Student;
 class StudentsController extends Controller
 {
    public function student()
-   {
+   {   
+       
        return view('admin.layouts.student');
    }
 
