@@ -66,7 +66,7 @@
 
 
 
-
+          @yield('content')
 
 
 
