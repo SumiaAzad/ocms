@@ -8,8 +8,10 @@ class StudentsController extends Controller
 {
    public function student()
    {   
-       
-       return view('admin.layouts.student');
+       $student = Student::all();
+    //    dd($student);
+
+       return view('admin.layouts.student',compact('student'));
    }
 
    public function studentAdd()
@@ -20,12 +22,21 @@ class StudentsController extends Controller
    {
     //    dd($request->all());
        Student::create([
-
-        'sid'=>$request->sid,
+        
         'name'=>$request->name,
+        'sid'=>$request->sid,
+        'gender'=>$request->gender,
+        'birth'=>$request->birth,
         'class'=>$request->class,
-        'email'=>$request->email,
+        'join'=>$request->join,
         'mobile'=>$request->mobile,
+        'admission_number'=>$request->admission_number,
+        'section'=>$request->section,
+        'email'=>$request->email,
+        'father_name'=>$request->father_name,
+        'father_mobile'=>$request->father_mobile,
+        'mother_name'=>$request->mother_name,
+        'mother_mobile'=>$request->mother_mobile,
         'address'=>$request->address
 
 

@@ -21,9 +21,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.course')}}">
+            <a class="nav-link" href="{{route('admin.subject')}}">
               
-              <span class="menu-title">Course</span>
+              <span class="menu-title">Subject</span>
             </a>
           </li>
           <li class="nav-item">

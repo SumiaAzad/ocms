@@ -5,30 +5,29 @@
 <table class="table table-dark table-hover">
   <thead>
     <tr>
-      <th scope="col"></th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">#</th>
+      <th scope="col">Student ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Class</th>
+      <th scope="col">Section</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Email ID</th>
+      <th scope="col">Address</th>
     </tr>
   </thead>
   <tbody>
+    @foreach($student as $a)
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row">{{$a->id}}</th>
+      <td>{{$a->sid}}</td>
+      <td>{{$a->name}}</td>
+      <td>{{$a->class}}</td>
+      <td>{{$a->section}}</td>
+      <td>{{$a->mobile}}</td>
+      <td>{{$a->email}}</td>
+      <td>{{$a->address}}</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    @endforeach
   </tbody>
 </table>
 
