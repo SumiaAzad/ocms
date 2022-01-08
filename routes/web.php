@@ -3,6 +3,9 @@ use App\Http\Controllers\website\HomeController;
 use App\Http\Controllers\website\LoginController;
 use App\Http\Controllers\website\ShowstudentController;
 use App\Http\Controllers\website\RoutineController as WebsiteRoutineController;
+use App\Http\Controllers\website\ProfileController;
+
+
 
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\AdminLoginController;
@@ -55,6 +58,12 @@ Route::get('/user/logout',[LoginController::class,'logout'])->name('user.logout'
 
 //routine
 Route::get('/website/routine',[websiteRoutineController::class,'routine'])->name('website.routine');
+
+
+//profile
+Route::get('/website/profile',[ProfileController::class,'profile'])->name('website.profile');
+Route::get('/website/profile/edit/{id}',[ProfileController::class,'edit'])->name('website.profile.edit');
+Route::put('/website/profile/update/{id}',[ProfileController::class,'update'])->name('website.profile.update');
 
 
 

@@ -54,8 +54,7 @@
 <td>
 @if($a->status == 'pending')
             <a class="btn btn-info" href="{{route('admin.user.accept',$a->id)}}">Accept</a>
-            @else
-            <a class="btn btn-danger" href="{{route('admin.user.accept',$a->id)}}">Pending</a>
+           
           @endif
 
             <a class="btn btn-primary" href="{{route('admin.user.view',$a->id)}}">View</a>

@@ -1,5 +1,6 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
+          @if(auth()->user()->role=='admin')
           <li class="nav-item">
             <a class="nav-link" href="{{route('admin.dashboard')}}">
               
@@ -51,6 +52,7 @@
               <span class="menu-title">User</span>
             </a>
           </li>
+          @endif
           <li class="nav-item">
             <a class="nav-link" href="{{route('admin.payment')}}">
               

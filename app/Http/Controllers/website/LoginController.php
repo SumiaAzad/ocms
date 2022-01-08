@@ -19,9 +19,21 @@ class LoginController extends Controller
         // dd($request->all());
         $userpost=$request->except('_token');
             // dd($userpost->email);
-        if (Auth::attempt($userpost)) {
-            // dd("true");
-            return redirect()->route('website.home')->with('msg','Login Sucessfully');
+        if (Auth::attempt($userpost))
+        
+         {
+            // dd(auth()->user());
+            if (auth()->user()->status == "accepted")
+             {
+                return redirect()->route('website.home')->with('msg','Login Sucessfully');
+            } 
+
+            else
+             {
+                Auth::logout();
+            return redirect()->back()->with('msg','Account created Sucessfully but not approved');
+            }
+            
         }
         else
         return redirect()->route('user.login')->with('error','Invalid User Cretentials');
