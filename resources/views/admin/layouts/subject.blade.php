@@ -6,18 +6,18 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Subject ID</th>
+      <th scope="col">Teacher</th>
       <th scope="col">Subject Name</th>
       <th scope="col">Class</th>
     </tr>
   </thead>
   <tbody>
-    @foreach($subject as $a)
+    @foreach($subject as $key=>$a)
     <tr>
-      <th scope="row">{{$a->id}}</th>
-      <td>{{$a->sub_id}}</td>
-      <td>{{$a->sub_name}}</td>
-      <td>{{$a->class}}</td>
+      <th scope="row">{{$key+1}}</th>
+      <td>{{$a->class->teacher}}</td>
+      <td>{{$a->class->subject}}</td>
+      <td>{{$a->class->class}}</td>
     </tr>
     @endforeach
   </tbody>

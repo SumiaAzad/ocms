@@ -33,12 +33,24 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.routine')}}">
+              
+              <span class="menu-title">Routine</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" href="{{route('admin.exam')}}">
               
               <span class="menu-title">Exam</span>
             </a>
           </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.user.list')}}">
+              
+              <span class="menu-title">User</span>
+            </a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('admin.payment')}}">
               

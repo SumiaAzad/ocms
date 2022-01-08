@@ -16,9 +16,9 @@
     </tr>
   </thead>
   <tbody>
-  @foreach($payment as $a)
+  @foreach($payment as $key=>$a)
     <tr>
-      <th scope="row">{{$a->id}}</th>
+      <th scope="row">{{$key+1}}</th>
       <td>{{$a->pay_id}}</td>
       <td>{{$a->pay_type}}</td>
       <td>{{$a->class}}</td>

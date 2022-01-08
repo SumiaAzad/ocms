@@ -17,9 +17,9 @@
     </tr>
   </thead>
   <tbody>
-  @foreach($exam as $a)
+  @foreach($exam as $key=>$a)
     <tr>
-      <th scope="row">{{$a->id}}</th>
+      <th scope="row">{{$key+1}}</th>
       <td>{{$a->exam_name}}</td>
       <td>{{$a->class}}</td>
       <td>{{$a->subject}}</td>

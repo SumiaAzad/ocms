@@ -39,21 +39,8 @@
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="d-flex justify-content-between flex-wrap">
-                <div class="d-flex align-items-end flex-wrap">
-                  <div class="mr-md-3 mr-xl-5">
-                    <h2>Welcome back,</h2>
-                   
-                  </div>
-                  
-                </div>
-                <div class="d-flex justify-content-between align-items-end flex-wrap">
-                  <button type="button" class="btn btn-light bg-white btn-icon mr-3 d-none d-md-block ">
-                    
-                  </button>
-                  
-                  
-                  
-                </div>
+               
+                
               </div>
             </div>
           </div>

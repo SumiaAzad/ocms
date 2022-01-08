@@ -1,6 +1,23 @@
 @extends('admin.master')
 @section('content')
 
+@if(session()->has('msg'))
+<p class="alert alert-success">
+    {{session()->get('msg')}}
+</p>
+@endif
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
 <form action="{{route('admin.exam.store')}}" method='post'>
   @csrf
 <div class="row">
@@ -10,13 +27,13 @@
 <div class="col-12 col-sm-6">
 <div class="form-group">
 <label>Exam Name</label>
-<input name='exam_name' type="text" class="form-control">
+<input required name='exam_name' type="text" class="form-control">
 </div>
 </div>
 <div class="col-12 col-sm-6">
 <div class="form-group">
 <label>Class</label>
-<select name='class' class="form-control">
+<select required name='class' class="form-control">
 <option>Select Class</option>
 <option>1</option>
 <option>2</option>
@@ -36,32 +53,32 @@
 <div class="col-12 col-sm-6">
 <div class="form-group">
 <label>Subject</label>
-<input name='subject' type="text" class="form-control">
+<input required name='subject' type="text" class="form-control">
 </div>
 </div>
 
 <div class="col-12 col-sm-6">
 <div class="form-group">
 <label>Start Time</label>
-<input name='start_time' type="time" class="form-control">
+<input required name='start_time' type="time" class="form-control">
 </div>
 </div>
 <div class="col-12 col-sm-6">
 <div class="form-group">
 <label>End Time</label>
-<input name='end_time' type="time" class="form-control">
+<input required name='end_time' type="time" class="form-control">
 </div>
 </div>
 <div class="col-12 col-sm-6">
 <div class="form-group">
 <label>Event Date</label>
-<input name='date' type="date" class="form-control">
+<input required name='date' type="date" class="form-control">
 </div>
 </div>
 <div class="col-12 col-sm-6">
 <div class="form-group">
 <label>Exam Link</label>
-<input name='link' type="text" class="form-control">
+<input required name='link' type="text" class="form-control">
 </div>
 </div>
 <div class="col-12">

@@ -26,6 +26,7 @@ class CreateTeachersTable extends Migration
             $table->string('email');
             $table->string('pass');
             $table->string('address');
+            $table->string('image');
             $table->timestamps();
         });
     }
