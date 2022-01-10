@@ -1,0 +1,68 @@
+@extends('website.master')
+@section('content')
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Class</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Grade</th>
+      <th scope="col">Status</th>
+     
+     
+    </tr>
+  </thead>
+  <tbody>
+  @php
+      $total_grade = 0;
+      @endphp
+    @foreach($data as $key=>$a)
+    <tr>
+      <th scope="row">{{$key+1}}</th>
+      <td>{{$a->name}}</td>
+      <td>{{$a->class}}</td>
+      <td>{{$a->subject}}</td>
+      
+      <td>
+        @if($a->grade <= '100' && $a->grade == '90')<a href="">A</a>
+        @elseif($a->grade <= '89' && $a->grade == '80')<a href="">B</a>
+        @elseif($a->grade <= '79' && $a->grade == '70')<a href="">C</a>
+        @elseif($a->grade <= '69' && $a->grade == '60')<a href="">D</a>
+        @else($a->grade <= '59' && $a->grade == '00')<a href="">F</a>
+        
+        @endif
+        @php
+        $total_grade = ($a->grade + $total_grade);
+        @endphp
+      </td>
+      <!-- <td>{{$total_grade}}</td> -->
+     <td>{{$a->status}}</td>
+
+    </tr>
+    @endforeach
+  </tbody>
+</table>
+<table>
+  <th>Final result</th>
+  <tbody>
+    <tr>
+      @php
+      $final=$total_grade/($key+1);
+      @endphp
+      <td>
+        <!-- {{$final}} -->
+         @if($final <= '100' && $final >= '90')<a href="">A</a>
+        @elseif($final <= '89' && $final >= '80')<a href="">B</a>
+        @elseif($final <= '79' && $final >= '70')<a href="">C</a>
+        @elseif($final<= '69' && $final >= '60')<a href="">D</a>
+        @else($final <= '59' && $final >= '00')<a href="">F</a>
+        
+        @endif
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+@endsection

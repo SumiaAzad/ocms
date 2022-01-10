@@ -26,6 +26,7 @@ class ShowstudentController extends Controller
     $request->validate([
         
         'name'=>'required',
+        'student_id'=>'required',
         'gender'=>'required',
         'birth'=>'required',
         'class'=>'required',
@@ -43,6 +44,7 @@ class ShowstudentController extends Controller
     
     User::create([
         'name'=>$request->name,
+        'student_id'=>$request->student_id,
         'gender'=>$request->gender,
         'birth'=>$request->birth,
         'class'=>$request->class,

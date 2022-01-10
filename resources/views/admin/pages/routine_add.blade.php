@@ -5,19 +5,26 @@
   @csrf
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Class</label>
-    <input required name='class' type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    
+    <select required name='class' type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <option>Select one</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select>
+</div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Subject</label>
     <input required name='subject' type="text" class="form-control" id="exampleInputPassword1">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Date</label>
-    <input required name='date' type="text" class="form-control" id="exampleInputPassword1">
+    <input required name='date' type="date" class="form-control" id="exampleInputPassword1">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Time</label>
-    <input required name='time' type="text" class="form-control" id="exampleInputPassword1">
+    <input required name='time' type="time" class="form-control" id="exampleInputPassword1">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Link</label>

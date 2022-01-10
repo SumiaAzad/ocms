@@ -4,6 +4,7 @@ use App\Http\Controllers\website\LoginController;
 use App\Http\Controllers\website\ShowstudentController;
 use App\Http\Controllers\website\RoutineController as WebsiteRoutineController;
 use App\Http\Controllers\website\ProfileController;
+use App\Http\Controllers\website\StudentResultController;
 
 
 
@@ -17,6 +18,9 @@ use App\Http\Controllers\admin\ClassController;
 use App\Http\Controllers\admin\RoutineController;
 use App\Http\Controllers\admin\ExamController;
 use App\Http\Controllers\admin\PaymentController;
+use App\Http\Controllers\admin\AttendanceController;
+use App\Http\Controllers\admin\ResultController;
+
 
 use Illuminate\Support\Facades\Route;
 /*
@@ -58,6 +62,9 @@ Route::get('/user/logout',[LoginController::class,'logout'])->name('user.logout'
 
 //routine
 Route::get('/website/routine',[websiteRoutineController::class,'routine'])->name('website.routine');
+
+//result
+Route::get('/website/result',[StudentResultController::class,'result'])->name('website.result');
 
 
 //profile
@@ -149,5 +156,15 @@ Route::group(['middleware'=>['auth','admin']],function(){
    Route::get('/admin/payment',[PaymentController::class,'payment'])->name('admin.payment');
    Route::get('/admin/payment/add',[PaymentController::class,'paymentAdd'])->name('admin.payment.add');
    Route::post('/admin/payment/store',[PaymentController::class,'store'])->name('admin.payment.store');
+
+   //report
+   Route::get('/admin/attendance',[AttendanceController::class,'attendance'])->name('admin.attendance');
+
+
+   //result
+   Route::get('/admin/result',[ResultController::class,'result'])->name('admin.result');
+   Route::get('/admin/result/add',[ResultController::class,'resultAdd'])->name('admin.result.add');
+   Route::post('/admin/result/store',[ResultController::class,'store'])->name('admin.result.store');
+
 
 });

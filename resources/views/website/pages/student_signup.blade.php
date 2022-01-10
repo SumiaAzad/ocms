@@ -25,7 +25,12 @@
     <input required name='name' type="text" class="form-control" id="exampleInputPassword1">
   </div>
 </div>
-
+<div class="col-12 col-sm-6">
+<div class="mb-3">
+<label for="exampleInputPassword1" class="form-label">Student ID</label>
+<input required name='student_id' type="text" class="form-control">
+</div>
+</div>
 <div class="col-12 col-sm-6">
 <div class="form-group">
 <label>Gender</label>

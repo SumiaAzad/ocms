@@ -92,6 +92,7 @@
                                 <a class="btn btn-primary" href="{{route('user.logout')}}">logout</a>
                                 <a class="btn btn-primary" href="{{route('website.routine')}}">Routine</a>
                                 <a class="btn btn-primary" href="{{route('website.profile')}}">Profile</a>
+                                <a class="btn btn-primary" href="{{route('website.result')}}">Result</a>
                                 @else
                                     <a href="{{route('user.login')}}">Login</a>
                             @endif

@@ -10,7 +10,8 @@ class RoutineController extends Controller
 {
     public function routine()
     {
-        $data=Routine::all();
+        
+        $data=Routine::where('class',auth()->user()->class)->get();
         return view('website.layouts.student_routine',compact('data'));
     }
 }

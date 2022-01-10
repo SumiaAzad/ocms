@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
        User::create([
 
         'name'=>'admin',
+        'student_id'=>'nothing',
         'gender'=>'male',
         'birth'=>'02/04/1998',
         'class'=>'1',
