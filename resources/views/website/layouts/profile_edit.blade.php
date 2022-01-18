@@ -90,6 +90,14 @@
 									<input name="address" type="text" class="form-control" value="{{$users->address}}">
 								</div>
 							</div>
+							<div class="row mb-3">
+								<div class="col-sm-3">
+									<h6 class="mb-0">Password</h6>
+								</div>
+								<div class="col-sm-9 text-secondary">
+									<input name="address" type="text" class="form-control" value="{{$users->password}}">
+								</div>
+							</div>
 							<div class="row">
 								<div class="col-sm-3"></div>
 								<div class="col-sm-9 text-secondary">

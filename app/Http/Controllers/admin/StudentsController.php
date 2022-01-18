@@ -4,15 +4,22 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Student;
+use App\Models\User;
 class StudentsController extends Controller
 {
-   public function student()
+   public function student(Request $request)
    {   
-       $student = Student::all();
+    $search=$request->query('search');
+    if($search)
+    {
+        $users=User::where('class','Like','%'.$search.'%')
+        ->orwhere('user_id','Like','%'.$search.'%')->get();
+        return view('admin.layouts.student',compact('users'));
+    }
+    $users = User::all();
     //    dd($student);
 
-       return view('admin.layouts.student',compact('student'));
+       return view('admin.layouts.student',compact('users'));
    }
 
    public function studentAdd()
@@ -70,4 +77,54 @@ class StudentsController extends Controller
        ]);
        return redirect()->back()->with('msg','Student form created sucessfully');
    }
+   public function pending($id)
+   {
+       $users=User::find($id);
+       $users->update([
+        'status'=>'accepted'
+       ]);
+       return redirect()->back();
+   }
+   public function view($id)
+   {
+       //dd("$user_id");
+       $users=User::find($id);
+       //dd($users);
+       return view('admin.pages.student_view',compact('users'));
+   }
+
+   public function edit($id)
+   {
+       //dd("$user_id");
+       $users=User::find($id);
+       //dd($users);
+       return view('admin.pages.student_edit',compact('users'));
+   }
+
+   public function update(Request $request,$id)
+   {
+       //dd("$user_id");
+       $users=User::find($id);
+       $users->update([
+          
+           'name'=>$request->name,
+       'gender'=>$request->gender,
+       'mobile'=>$request->mobile,
+       'email'=>$request->email,
+       'password'=>$request->password,
+       'address'=>$request->address,
+       'image'=>$request->image,
+
+       ]);
+       return redirect()->route('admin.student')->with('msg','Updated Sucessfully');
+   }
+
+
+   public function delete($id)
+   {
+      User::find($id)->delete();
+      return redirect()->back()->with('msg','Deleted');
+       
+   }
+  
 }

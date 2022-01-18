@@ -45,4 +45,36 @@ class ExamController extends Controller
         return redirect()->back()->with('msg','Exam form created sucessfully');
 
    }
+   public function edit($id)
+   {
+       //dd("$user_id");
+       $exam=Exam::find($id);
+       //dd($users);
+       return view('admin.pages.exam_edit',compact('exam'));
+   }
+
+   public function update(Request $request,$id)
+   {
+       //dd("$user_id");
+       $exam=Exam::find($id);
+       $exam->update([
+          
+        'exam_name'=>$request->exam_name,
+        'class'=>$request->class,
+        'subject'=>$request->subject,
+        'start_time'=>$request->start_time,
+        'end_time'=>$request->end_time,
+        'date'=>$request->date,
+        'link'=>$request->link,
+
+       ]);
+       return redirect()->route('admin.exam')->with('msg','Updated Sucessfully');
+   }
+
+    public function delete($id)
+   {
+      Exam::find($id)->delete();
+      return redirect()->back()->with('msg','Deleted');
+       
+   }
 }

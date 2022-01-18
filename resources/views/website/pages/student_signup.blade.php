@@ -13,7 +13,7 @@
     </div>
 @endif
 <div class="container">
-<form action="{{route('user.student.signup')}}" method='POST' enctype="multipart/form-data">
+<form action="{{route('user.signup.store')}}" method='POST' enctype="multipart/form-data">
   @csrf
 <div class="row">
 <div class="col-12">
@@ -25,10 +25,11 @@
     <input required name='name' type="text" class="form-control" id="exampleInputPassword1">
   </div>
 </div>
+
 <div class="col-12 col-sm-6">
 <div class="mb-3">
 <label for="exampleInputPassword1" class="form-label">Student ID</label>
-<input required name='student_id' type="text" class="form-control">
+<input required name='user_id' type="text" class="form-control">
 </div>
 </div>
 <div class="col-12 col-sm-6">

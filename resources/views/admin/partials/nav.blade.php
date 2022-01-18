@@ -21,7 +21,7 @@
               <span class="menu-title">Teachers</span>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="{{route('admin.subject')}}">
               
               <span class="menu-title">Subject</span>
@@ -32,7 +32,7 @@
               
               <span class="menu-title">Class</span>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="{{route('admin.routine')}}">
               

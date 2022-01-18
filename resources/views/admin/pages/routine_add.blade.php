@@ -16,7 +16,17 @@
 </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Subject</label>
-    <input required name='subject' type="text" class="form-control" id="exampleInputPassword1">
+    <select required name='subject' type="text" class="form-control" id="exampleInputPassword1">
+    <option>Select One</option>
+<option>Bangla</option>
+<option>English</option>
+<option>Math</option>
+<option>Science</option>
+<option>Social Science</option>
+<option>Relegion</option>
+<option>Ict</option>
+
+</select>
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Date</label>

@@ -35,6 +35,7 @@
     </thead>
     <tbody>
         @foreach ($users as $key=>$a)
+       
          <tr>
         <th scope="row">{{$key+1}}</th>
         <td>
@@ -63,6 +64,7 @@
 
         </td>
     </tr>   
+   
         @endforeach
     
     

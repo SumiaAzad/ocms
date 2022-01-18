@@ -4,66 +4,76 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Teacher;
+use App\Models\User;
 class TeachersController extends Controller
 {
-    public function teacher()
+    public function teacher(Request $request)
     {
-            $teacher=Teacher::all();
+        $search=$request->query('search');
+    if($search)
+    {
+        $users=User::where('name','Like','%'.$search.'%')
+        ->orwhere('user_id','Like','%'.$search.'%')->get();
+        return view('admin.layouts.teacher',compact('users'));
+    }
             // dd($teacher);
 
-        return view('admin.layouts.teacher',compact('teacher'));
+            $users = User::all();
+        return view('admin.layouts.teacher',compact('users'));
     }
     public function teacherAdd()
    {
        return view('admin.pages.teacher_add');
    }
-   public function store(Request $request)
+   public function pending($id)
    {
-    //    dd($request->all());
-    //    dd(date('Ymdhms'));
-    if($request->hasFile('image'))
-    {
-        $file=$request->file('image');
-        $filename=date('Ymdhms').'.'.$file->getClientOriginalExtension();
-        $file->storeAs('/uploads',$filename);
-    }
-        $request->validate([
+       $users=User::find($id);
+       $users->update([
+        'status'=>'accepted'
+       ]);
+       return redirect()->back();
+   }
+   public function view($id)
+   {
+       //dd("$user_id");
+       $users=User::find($id);
+       //dd($users);
+       return view('admin.pages.teacher_view',compact('users'));
+   }
 
-            'tid'=>'required',
-            'name'=>'required',
-            'gender'=>'required',
-            'birth'=>'required',
-            'mobile'=>'required |max:11',
-            'join_date'=>'required',
-            'qualification'=>'required',
-            'experience'=>'required',
-            'email'=>'required',
-            'pass'=>'required',
-            'address'=>'required',
-            'image'=>'required',
+   public function edit($id)
+   {
+       //dd("$user_id");
+       $users=User::find($id);
+       //dd($users);
+       return view('admin.pages.teacher_edit',compact('users'));
+   }
 
-        ]);
-
-
-    //    dd($request->all());
-       Teacher::create([
-
-            'tid'=>$request->tid,
-            'name'=>$request->name,
-            'gender'=>$request->gender,
-            'birth'=>$request->birth,
-            'mobile'=>$request->mobile,
-            'join_date'=>$request->join_date,
-            'qualification'=>$request->qualification,
-            'experience'=>$request->experience,
-            'email'=>$request->email,
-            'pass'=>$request->pass,
-            'address'=>$request->address,
-            'image'=>$filename,
+   public function update(Request $request,$id)
+   {
+       //dd("$user_id");
+       $users=User::find($id);
+       $users->update([
+          
+           'name'=>$request->name,
+       'gender'=>$request->gender,
+       'mobile'=>$request->mobile,
+       'email'=>$request->email,
+       'password'=>$request->password,
+       'address'=>$request->address,
+       'image'=>$request->image,
 
        ]);
-       return redirect()->back()->with('msg','Teacher form created sucessfully');
+       return redirect()->route('admin.teacher')->with('msg','Updated Sucessfully');
    }
+
+
+   public function delete($id)
+   {
+      User::find($id)->delete();
+      return redirect()->back()->with('msg','Deleted');
+       
+   }
+  
 }
 

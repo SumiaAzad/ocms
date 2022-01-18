@@ -224,12 +224,14 @@ ul {
 ul,
 li {
     list-style: none
+    
 }
 
 p {
     font-size: 16px;
     line-height: 30px;
-    color: #4c4c4c
+    color: #4c4c4c;
+   
 }
 
 a {
@@ -2724,7 +2726,7 @@ textarea:-ms-input-placeholder {
     }
 
     .main-menu {
-        text-align: left
+        text-align: left;
     }
 
     .sidebar-menu i {

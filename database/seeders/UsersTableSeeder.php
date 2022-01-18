@@ -16,20 +16,13 @@ class UsersTableSeeder extends Seeder
        User::create([
 
         'name'=>'admin',
-        'student_id'=>'nothing',
+        'user_id'=>'nothing',
         'gender'=>'male',
-        'birth'=>'02/04/1998',
-        'class'=>'1',
-        'join'=>'09/10/2021',
         'mobile'=>'01645205703',
         'email'=>'admin@gmail.com',
         'password'=>bcrypt('1234'),
         'status'=>'yes',
         'role'=>'admin',
-        'father_name'=>'Azad',
-        'father_mobile'=>'01712251945',
-        'mother_name'=>'khoki',
-        'mother_mobile'=>'01729976812',
         'address'=>'uttara',
         'image'=>'laboni',
         

@@ -5,7 +5,7 @@
 <table class="table table-dark table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">SL</th>
       <th scope="col">Exam Name</th>
       <th scope="col">Class</th>
       <th scope="col">Subject</th>
@@ -13,6 +13,7 @@
       <th scope="col">Ending time</th>
       <th scope="col">Date</th>
       <th scope="col">Exam Link</th>
+      <th scope="col">Action</th>
 
     </tr>
   </thead>
@@ -27,6 +28,10 @@
       <td>{{$a->start_time}}</td>
       <td>{{$a->end_time}}</td>
       <td>{{$a->link}}</td>
+      <td>
+      <a class="btn btn-danger" href="{{route('admin.exam.delete',$a->id)}}">Delete</a>
+        <a class="btn btn-success" href="{{route('admin.exam.edit',$a->id)}}">Edit</a>
+      </td>
     </tr>
     @endforeach
     

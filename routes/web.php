@@ -50,7 +50,7 @@ Route::get('/website/home',[HomeController::class,'home'])->name('website.home')
 
 //student signup
 Route::get('/website/student',[ShowstudentController::class,'student'])->name('website.student.signup');
-Route::post('/user/student/signup',[ShowstudentController::class,'studentSignup'])->name('user.student.signup');
+Route::post('/user/student/signup',[ShowstudentController::class,'studentSignup'])->name('user.signup.store');
 
 
 
@@ -118,13 +118,25 @@ Route::group(['middleware'=>['auth','admin']],function(){
    Route::get('/admin/student',[StudentsController::class,'student'])->name('admin.student');
    Route::get('/admin/student/add',[StudentsController::class,'studentAdd'])->name('admin.student.add');
    Route::post('/admin/student/store',[StudentsController::class,'store'])->name('admin.student.store');
+   Route::get('/admin/student/accept/{id}',[StudentsController::class,'pending'])->name('admin.student.accept');
+
+    Route::get('/admin/student/view/{id}',[StudentsController::class,'view'])->name('admin.student.view');
+    Route::get('/admin/student/delete/{id}',[StudentsController::class,'delete'])->name('admin.student.delete');
+    Route::get('/admin/student/edit/{id}',[StudentsController::class,'edit'])->name('admin.student.edit');
+    Route::put('/admin/student/update/{id}',[StudentsController::class,'update'])->name('admin.student.update');
   
   
   
    //teacher
    Route::get('/admin/teacher',[TeachersController::class,'teacher'])->name('admin.teacher');
    Route::get('/admin/teacher/add',[TeachersController::class,'teacherAdd'])->name('admin.teacher.add');
-   Route::post('/admin/teacher/store',[TeachersController::class,'store'])->name('admin.teacher.store');
+   Route::get('/admin/teacher/accept/{id}',[TeachersController::class,'pending'])->name('admin.teacher.accept');
+
+    Route::get('/admin/teacher/view/{id}',[TeachersController::class,'view'])->name('admin.teacher.view');
+    Route::get('/admin/teacher/delete/{id}',[TeachersController::class,'delete'])->name('admin.teacher.delete');
+    Route::get('/admin/teacher/edit/{id}',[TeachersController::class,'edit'])->name('admin.teacher.edit');
+    Route::put('/admin/teacher/update/{id}',[TeachersController::class,'update'])->name('admin.teacher.update');
+
   
   
    //subject
@@ -143,12 +155,17 @@ Route::group(['middleware'=>['auth','admin']],function(){
    Route::get('/admin/exam',[ExamController::class,'exam'])->name('admin.exam');
    Route::get('/admin/exam/add',[ExamController::class,'examAdd'])->name('admin.exam.add');
    Route::post('/admin/exam/store',[ExamController::class,'store'])->name('admin.exam.store');
-  
+   Route::get('/admin/exam/delete/{id}',[ExamController::class,'delete'])->name('admin.exam.delete');
+   Route::get('/admin/exam/edit/{id}',[ExamController::class,'edit'])->name('admin.exam.edit');
+   Route::put('/admin/exam/update/{id}',[ExamController::class,'update'])->name('admin.exam.update');
   
   //routine
    Route::get('/admin/routine',[RoutineController::class,'routine'])->name('admin.routine');
    Route::get('/admin/routine/add',[RoutineController::class,'routineAdd'])->name('admin.routine.add');
   Route::post('/admin/routine/store',[RoutineController::class,'store'])->name('admin.routine.store');
+  Route::get('/admin/routine/delete/{id}',[RoutineController::class,'delete'])->name('admin.routine.delete');
+    Route::get('/admin/routine/edit/{id}',[RoutineController::class,'edit'])->name('admin.routine.edit');
+    Route::put('/admin/routine/update/{id}',[RoutineController::class,'update'])->name('admin.routine.update');
   
   
   

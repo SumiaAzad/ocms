@@ -17,16 +17,16 @@
     </div>
 @endif
 
-<form action="{{route('admin.teacher.store')}}" method='POST' enctype="multipart/form-data" >
+<form action="{{route('user.signup.store')}}" method='POST' enctype="multipart/form-data" >
   @csrf
 <div class="row">
 <div class="col-12">
-<h5 class="form-title"><span>Basic Details</span></h5>
+<h5 class="form-title"><span>Teacher Details</span></h5>
 </div>
 <div class="col-12 col-sm-6">
 <div class="form-group">
 <label>Teacher ID</label>
-<input required name='tid' type="text" class="form-control">
+<input required name='user_id' type="text" class="form-control">
 </div>
 </div>
 <div class="col-12 col-sm-6">
@@ -39,42 +39,24 @@
 <div class="form-group">
 <label>Gender</label>
 <select required name='gender' class="form-control">
+<option>Select One</option>
 <option>Male</option>
 <option>Female</option>
 <option>Others</option>
 </select>
 </div>
 </div>
-<div class="col-12 col-sm-6">
-<div class="form-group">
-<label>Date of Birth</label>
-<input required name='birth' type="date" class="form-control">
-</div>
-</div>
+
 <div class="col-12 col-sm-6">
 <div class="form-group">
 <label>Mobile</label>
 <input required name='mobile' type="text" class="form-control">
 </div>
 </div>
-<div class="col-12 col-sm-6">
-<div class="form-group">
-<label>Joining Date</label>
-<input required name='join_date' type="date" class="form-control">
-</div>
-</div>
-<div class="col-12 col-sm-6">
-<div class="form-group">
-<label>Qualification</label>
-<input required name='qualification' class="form-control" type="text">
-</div>
-</div>
-<div class="col-12 col-sm-6">
-<div class="form-group">
-<label>Experience</label>
-<input required name='experience' class="form-control" type="text">
-</div>
-</div>
+
+<div class="mb-3">
+          <input hidden value="teacher" name="role" type="text" class="form-control" id="exampleInputPassword1">
+        </div>
 
 <div class="col-12 col-sm-6">
 <div class="form-group">
@@ -85,7 +67,7 @@
 <div class="col-12 col-sm-6">
 <div class="form-group">
 <label>Password</label>
-<input required name='pass' type="text" class="form-control">
+<input required name='password' type="password" class="form-control">
 </div>
 </div>
 

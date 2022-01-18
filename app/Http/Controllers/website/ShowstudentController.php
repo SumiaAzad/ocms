@@ -26,17 +26,11 @@ class ShowstudentController extends Controller
     $request->validate([
         
         'name'=>'required',
-        'student_id'=>'required',
+        'user_id'=>'required',
         'gender'=>'required',
-        'birth'=>'required',
-        'class'=>'required',
         'mobile'=>'required |max:11',
         'email'=>'required',
         'password'=>'required',
-        'father_name'=>'required',
-        'father_mobile'=>'required |max:11',
-        'mother_name'=>'required',
-        'mother_mobile'=>'required |max:11',
         'address'=>'required',
         'image'=>'required',
 
@@ -44,7 +38,7 @@ class ShowstudentController extends Controller
     
     User::create([
         'name'=>$request->name,
-        'student_id'=>$request->student_id,
+        'user_id'=>$request->user_id,
         'gender'=>$request->gender,
         'birth'=>$request->birth,
         'class'=>$request->class,
@@ -59,7 +53,7 @@ class ShowstudentController extends Controller
         'address'=>$request->address,
         'image'=>$filename,
     ]);
-    return redirect()->back()->with('msg','Student form created sucessfully');
+    return redirect()->back()->with('msg','Form created sucessfully');
     
 }
 

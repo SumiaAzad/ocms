@@ -14,21 +14,25 @@
         </div>
     </div>
     </div>
-    <div class="header-bottom">
-        <div class="container">
+    <div class="header-bottom" style="background-color: #C5C4DF">
+        <div class="container" >
             <div class="row align-items-center">
                 <div class="col-lg-2 col-md-4 col-6 order-lg-1 order-md-1 order-1">
-                    <div class="logo">
+                    <!-- <div class="logo">
                         <a href="index.html"><img src="{{('/img/logo.png')}}" alt="Image"></a>
-                    </div>
+                    </div> -->
                 </div>
-                <div class="col-lg-6 col-md-3 col-6 order-lg-2 order-md-3 order-3">
+                <div>
+                <!-- <div class="col-lg-6 col-md-3 col-6 order-lg-2 order-md-3 order-3"> -->
                     <div class="main-menu-wrap style1">
                         <div class="menu-close xl-none">
                             <a href="javascript:void(0)"><i class="las la-times"></i></a>
                         </div>
                         <div id="menu" class="text-left">
-                            <ul class="main-menu ">
+                        <div class="logo">
+                        <a href="index.html"><img src="{{('/img/logo.png')}}" alt="Image"></a>
+                    </div>
+                            <ul class="main-menu " >
                                 <li>
                                     <a href="{{route('website.home')}}">HOME</a>
 
@@ -55,18 +59,14 @@
                                     </ul>
                                 </li>
                                 
-                                <!-- @if(auth()->user())
-                                <a class="btn btn-primary" href="{{route('user.logout')}}">logout</a>
-                                <a class="btn btn-primary" href="{{route('website.routine')}}">Routine</a>
+                                @if(auth()->user())
+                                <a style="background-color: #e7e7e7;" href="{{route('user.logout')}}">logout</a>
+                                <a class="btn btn-light" href="{{route('website.routine')}}">Routine</a>
                                 <a class="btn btn-primary" href="{{route('website.profile')}}">Profile</a>
-
-                                <a>{{auth()->user()->name}}</a>
+                                <a class="btn btn-primary" href="{{route('website.result')}}">Result</a>
                                 @else
-                                <li>
                                     <a href="{{route('user.login')}}">Login</a>
-
-                                </li>
-                                @endif -->
+                            @endif
 
                             </ul>
                             </li>
@@ -88,14 +88,14 @@
                 <div class="col-lg-4 col-md-5  order-lg-3 order-md-2">
                     <div class="header-menu-wrap">
                         <div class="header-search md-none">
-                            @if(auth()->user())
+                            <!-- @if(auth()->user())
                                 <a class="btn btn-primary" href="{{route('user.logout')}}">logout</a>
                                 <a class="btn btn-primary" href="{{route('website.routine')}}">Routine</a>
                                 <a class="btn btn-primary" href="{{route('website.profile')}}">Profile</a>
                                 <a class="btn btn-primary" href="{{route('website.result')}}">Result</a>
                                 @else
                                     <a href="{{route('user.login')}}">Login</a>
-                            @endif
+                            @endif -->
                         </div>
 
                     </div>

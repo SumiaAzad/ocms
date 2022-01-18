@@ -20,7 +20,7 @@
           
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face5.jpg" alt="profile"/>
+              <img src="{{url('/img/admin.png')}}" alt="profile"/>
               <span class="nav-profile-name">Sumaiya Azad Laboni</span>
               <a class="btn btn-primary" href="{{route('admin.logout')}}">{{auth()->user()->name}} ({{auth()->user()->role}}) |Signgout</a>
 
