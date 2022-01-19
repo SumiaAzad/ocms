@@ -29,7 +29,7 @@
   </thead>
   <tbody>
     @foreach ($users as $a)
-  @if($a->role == 'user')
+  @if($a->role == 'student')
   <tr>
         <th scope="row">{{$a->user_id}}</th>
   <td>

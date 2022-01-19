@@ -1,14 +1,10 @@
-@extends('admin.master')
+@extends('website.master')
 @section('content')
 
 
-@if(session()->has('msg'))
-<p class="alert alert-success">
-    {{session()->get('msg')}}
-</p>
-@endif
+<div class="container">
 
-<a href="{{route('admin.result.add')}}" class="btn btn-primary">Add result</a>
+<a href="{{route('website.teacher.result.add')}}" class="btn btn-primary">Add result</a>
 <table class="table">
   <thead>
     <tr>
@@ -20,6 +16,7 @@
       <th scope="col">Grade</th>
       <th scope="col">Status</th>
       <th scope="col">Action</th>
+
     </tr>
   </thead>
   <tbody>
@@ -34,14 +31,14 @@
       <td>{{$a->grade}}</td>
       <td>{{$a->status}}</td>
       <td>
-      <a class="btn btn-danger" href="{{route('admin.result.delete',$a->id)}}">Delete</a>
-        <a class="btn btn-success" href="{{route('admin.result.edit',$a->id)}}">Edit</a>
+      <a class="btn btn-danger" href="{{route('website.teacher.result.delete',$a->id)}}">Delete</a>
+        <a class="btn btn-success" href="{{route('website.teacher.result.edit',$a->id)}}">Edit</a>
       </td>
     </tr>
     @endforeach
   
   </tbody>
 </table>
-
+</div>
 
 @endsection

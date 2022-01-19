@@ -135,7 +135,9 @@
   <label for="formFile" class="form-label">Picture</label>
   <input name='image' class="form-control" type="file" id="formFile">
 </div>
-
+<div >
+          <input hidden value="student" name="role" type="text" class="form-control" >
+        </div>
 <div class="col-12">
 <button type="submit" class="btn btn-primary">Submit</button>
 </div>

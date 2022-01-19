@@ -1,24 +1,10 @@
-@extends('admin.master')
+@extends('website.master')
 @section('content')
 
 
-@if(session()->has('msg'))
-<p class="alert alert-success">
-    {{session()->get('msg')}}
-</p>
-@endif
+<div class="container">
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
-<form action="{{route('admin.result.store')}}" method='post'>
+<form action="{{route('website.teacher.result.store')}}" method='post'>
   @csrf
   
   <div class="mb-3">
@@ -64,5 +50,5 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-
+</div>
 @endsection

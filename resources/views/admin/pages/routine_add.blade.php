@@ -1,6 +1,23 @@
 @extends('admin.master')
 @section('content')
 
+@if(session()->has('msg'))
+<p class="alert alert-success">
+    {{session()->get('msg')}}
+</p>
+@endif
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
 <form action="{{route('admin.routine.store')}}" method='post'>
   @csrf
   <div class="mb-3">

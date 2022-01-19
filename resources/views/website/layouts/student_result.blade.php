@@ -1,17 +1,18 @@
 @extends('website.master')
 @section('content')
 
+<div class="container">
+
 <table class="table">
   <thead>
-    <tr>
-      <th scope="col">ID</th>
+  <tr>
+  <th scope="col">SL</th>
       <th scope="col">Name</th>
+      <th scope="col">Student ID</th>
       <th scope="col">Class</th>
       <th scope="col">Subject</th>
       <th scope="col">Grade</th>
       <th scope="col">Status</th>
-     
-     
     </tr>
   </thead>
   <tbody>
@@ -20,8 +21,9 @@
       @endphp
     @foreach($data as $key=>$a)
     <tr>
-      <th scope="row">{{$key+1}}</th>
+    <th scope="row">{{$key+1}}</th>
       <td>{{$a->name}}</td>
+      <td>{{$a->user_id}}</td>
       <td>{{$a->class}}</td>
       <td>{{$a->subject}}</td>
       
@@ -64,5 +66,5 @@
     </tr>
   </tbody>
 </table>
-
+</div>
 @endsection

@@ -44,6 +44,7 @@ class ShowstudentController extends Controller
         'class'=>$request->class,
         'join'=>$request->join,
         'mobile'=>$request->mobile,
+        'role'=>$request->role,
         'email'=>$request->email,
         'password'=>bcrypt( $request->password),
         'father_name'=>$request->father_name,

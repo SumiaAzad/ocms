@@ -34,7 +34,7 @@ class RoutineController extends Controller
             'link'=>$request->link,
 
         ]);
-        return redirect()->route('admin.routine');
+        return redirect()->route('admin.routine')->with('msg','Routine form created sucessfully');
     }
 
     public function edit($id)

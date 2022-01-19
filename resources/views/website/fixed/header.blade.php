@@ -58,15 +58,29 @@
                                         <li><a href="404.html">404</a></li>
                                     </ul>
                                 </li>
-                                
+
                                 @if(auth()->user())
+                            
                                 <a style="background-color: #e7e7e7;" href="{{route('user.logout')}}">logout</a>
                                 <a class="btn btn-light" href="{{route('website.routine')}}">Routine</a>
                                 <a class="btn btn-primary" href="{{route('website.profile')}}">Profile</a>
                                 <a class="btn btn-primary" href="{{route('website.result')}}">Result</a>
+                                <a class="btn btn-primary" href="{{route('website.exam')}}">Exam</a>
                                 @else
                                     <a href="{{route('user.login')}}">Login</a>
                             @endif
+        
+
+                            @if(auth()->user())
+                            <a style="background-color: #e7e7e7;" href="{{route('teacher.logout')}}">logout</a>
+                               
+                                <a class="btn btn-primary" href="{{route('website.teacherprofile')}}">Profile</a>
+                                <a class="btn btn-primary" href="{{route('website.teacher.result')}}">Result</a>
+                                @else
+                                    <a href="{{route('teacher.login')}}"> Teacher Login</a>
+                            @endif
+
+
 
                             </ul>
                             </li>

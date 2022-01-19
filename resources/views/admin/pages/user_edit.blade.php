@@ -1,6 +1,21 @@
 @extends('admin.master')
 @section('content')
 
+@if(session()->has('msg'))
+<p class="alert alert-success">
+    {{session()->get('msg')}}
+</p>
+@endif
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <h4>User update</h1>
  
 <form action="{{route('admin.user.update',$users->id)}}" method="post">

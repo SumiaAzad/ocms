@@ -2,6 +2,11 @@
 @section('content')
 
 
+@if(session()->has('msg'))
+<p class="alert alert-success">
+    {{session()->get('msg')}}
+</p>
+@endif
 
 <a href="{{route('admin.routine.add')}}" class="btn btn-primary">Add routine</a>
 

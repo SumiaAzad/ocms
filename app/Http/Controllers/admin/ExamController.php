@@ -42,7 +42,7 @@ class ExamController extends Controller
 
 
         ]);
-        return redirect()->back()->with('msg','Exam form created sucessfully');
+        return redirect()->route('admin.exam')->with('msg','Exam form created sucessfully');
 
    }
    public function edit($id)

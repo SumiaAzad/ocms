@@ -1,23 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\website;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Result;
-
-class ResultController extends Controller
+class TeacherResultController extends Controller
 {
     public function result()
     {
         $data=Result::all();
 
-        return view('admin.layouts.result',compact('data'));
+        return view('website.layouts.teacher_see_result',compact('data'));
     }
 
     public function resultAdd()
     {
-        return view('admin.pages.result_add');
+        return view('website.layouts.teacher_add_result');
     }
 
 
@@ -33,15 +32,14 @@ class ResultController extends Controller
             
 
         ]);
-        return redirect()->route('admin.result')->with('msg','Result form created sucessfully');
-
+        return redirect()->back();
     }
     public function edit($id)
     {
         //dd("$user_id");
         $result=Result::find($id);
         //dd($users);
-        return view('admin.pages.result_edit',compact('result'));
+        return view('website.layouts.teacher_edit_result',compact('result'));
     }
  
     public function update(Request $request,$id)
@@ -59,7 +57,7 @@ class ResultController extends Controller
             
  
         ]);
-        return redirect()->route('admin.result')->with('msg','Updated Sucessfully');
+        return redirect()->route('website.teacher.result')->with('msg','Updated Sucessfully');
     }
  
      public function delete($id)

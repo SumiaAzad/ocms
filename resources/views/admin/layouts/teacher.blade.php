@@ -1,6 +1,12 @@
 @extends('admin.master')
 @section('content')
 
+@if(session()->has('msg'))
+<p class="alert alert-success">
+    {{session()->get('msg')}}
+</p>
+@endif
+
 <a href="{{route('admin.teacher.add')}}" class="btn btn-primary">Add Teacher</a>
 
 <form action="{{route('admin.teacher')}}" >
