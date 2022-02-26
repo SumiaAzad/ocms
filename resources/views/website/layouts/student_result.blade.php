@@ -1,9 +1,16 @@
 @extends('website.master')
 @section('content')
 
-<div class="container">
+<div class="container my-5">
 
-<table class="table">
+
+<form class="print_order">
+    <input class="btn btn-primary" type="button" onclick="PrintDiv();" value="Print">
+</form>
+<div id="divToPrint">
+
+
+<table class="table table-light table-hover">
   <thead>
   <tr>
   <th scope="col">SL</th>
@@ -28,11 +35,11 @@
       <td>{{$a->subject}}</td>
       
       <td>
-        @if($a->grade <= '100' && $a->grade == '90')<a href="">A</a>
-        @elseif($a->grade <= '89' && $a->grade == '80')<a href="">B</a>
-        @elseif($a->grade <= '79' && $a->grade == '70')<a href="">C</a>
-        @elseif($a->grade <= '69' && $a->grade == '60')<a href="">D</a>
-        @else($a->grade <= '59' && $a->grade == '00')<a href="">F</a>
+        @if($a->grade <= '100' && $a->grade >= '90')<a href="">A</a>
+        @elseif($a->grade <= '89' && $a->grade >='80')<a href="">B</a>
+        @elseif($a->grade <= '79' && $a->grade >= '70')<a href="">C</a>
+        @elseif($a->grade <= '69' && $a->grade >= '60')<a href="">D</a>
+        @else($a->grade <= '59' && $a->grade >= '00')<a href="">F</a>
         
         @endif
         @php
@@ -68,3 +75,14 @@
 </table>
 </div>
 @endsection
+
+
+<script language="javascript">
+    function PrintDiv() {
+        var divToPrint = document.getElementById('divToPrint');
+        var popupWin = window.open('', '_blank', 'width=1100,height=700');
+        popupWin.document.open();
+        popupWin.document.write('<html><head><link href="http://localhost/ltms-app/public/css/style.css" rel="stylesheet"></head><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+        popupWin.document.close();
+    }
+</script>

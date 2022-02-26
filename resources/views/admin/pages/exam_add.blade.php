@@ -27,7 +27,12 @@
 <div class="col-12 col-sm-6">
 <div class="form-group">
 <label>Exam Name</label>
-<input required name='exam_name' type="text" class="form-control">
+<select required name='exam_name' type="text" class="form-control">
+<option>Select One</option>
+                        <option>First Term</option>
+                        <option>Mid Term</option>
+                        <option>Final</option>
+                        </select>
 </div>
 </div>
 <div class="col-12 col-sm-6">
@@ -46,7 +51,17 @@
 <div class="col-12 col-sm-6">
 <div class="form-group">
 <label>Subject</label>
-<input required name='subject' type="text" class="form-control">
+<select required name='subject' type="text" class="form-control">
+<option>Select One</option>
+                        <option>Bangla</option>
+                        <option>English</option>
+                        <option>Math</option>
+                        <option>Science</option>
+                        <option>Social Science</option>
+                        <option>Relegion</option>
+                        <option>Ict</option>
+
+                        </select>
 </div>
 </div>
 

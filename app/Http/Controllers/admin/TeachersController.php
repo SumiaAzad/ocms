@@ -31,7 +31,7 @@ class TeachersController extends Controller
        $users->update([
         'status'=>'accepted'
        ]);
-       return redirect()->back();
+       return redirect()->route('admin.teacher');
    }
    public function view($id)
    {
@@ -58,6 +58,7 @@ class TeachersController extends Controller
            'name'=>$request->name,
        'gender'=>$request->gender,
        'mobile'=>$request->mobile,
+       'subject'=>$request->subject,
        'email'=>$request->email,
        'password'=>$request->password,
        'address'=>$request->address,
@@ -71,7 +72,7 @@ class TeachersController extends Controller
    public function delete($id)
    {
       User::find($id)->delete();
-      return redirect()->back()->with('msg','Deleted');
+      return redirect()->back()->with('msg','Deleted')->with('msg','Teacher deleted successfully');
        
    }
   

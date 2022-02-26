@@ -9,7 +9,7 @@ class TeacherResultController extends Controller
 {
     public function result()
     {
-        $data=Result::all();
+        $data=Result::where('subject',auth()->user()->subject)->get();
 
         return view('website.layouts.teacher_see_result',compact('data'));
     }
@@ -32,38 +32,15 @@ class TeacherResultController extends Controller
             
 
         ]);
-        return redirect()->back();
+        return redirect()->route('website.teacher.result')->with('msg','Result added successfully');
     }
-    public function edit($id)
-    {
-        //dd("$user_id");
-        $result=Result::find($id);
-        //dd($users);
-        return view('website.layouts.teacher_edit_result',compact('result'));
-    }
- 
-    public function update(Request $request,$id)
-    {
-        //dd("$user_id");
-        $result=Result::find($id);
-        $result->update([
-           
-            'name'=>$request-> name,
-            'user_id'=>$request-> user_id,
-            'class'=>$request-> class,
-            'subject'=>$request->subject,
-            'grade'=>$request->grade,
-            'status'=>$request->status,
-            
- 
-        ]);
-        return redirect()->route('website.teacher.result')->with('msg','Updated Sucessfully');
-    }
+   
+    
  
      public function delete($id)
     {
        Result::find($id)->delete();
-       return redirect()->back()->with('msg','Deleted');
+       return redirect()->back()->with('msg','Deleted')->with('msg','Result deleted successfully');
         
     }
 }

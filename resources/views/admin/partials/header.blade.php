@@ -7,14 +7,7 @@
         </div>  
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <ul class="navbar-nav mr-lg-4 w-100">
-          <li class="nav-item nav-search d-none d-lg-block w-100">
-            <div class="input-group">
-              
-              <input type="text" class="form-control" placeholder="Search now" aria-label="search" aria-describedby="search">
-            </div>
-          </li>
-        </ul>
+        
         <ul class="navbar-nav navbar-nav-right">
           
           
@@ -22,7 +15,7 @@
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
               <img src="{{url('/img/admin.png')}}" alt="profile"/>
               <span class="nav-profile-name">Sumaiya Azad Laboni</span>
-              <a class="btn btn-primary" href="{{route('admin.logout')}}">{{auth()->user()->name}} ({{auth()->user()->role}}) |Signgout</a>
+              <a class="btn btn-primary" href="{{route('admin.logout')}}"> ({{auth()->user()->name}}) |Signgout</a>
 
             </a>
             

@@ -12,7 +12,7 @@
         </ul>
     </div>
 @endif
-<div class="container">
+<div class="container my-5 ">
 <form action="{{route('user.signup.store')}}" method='POST' enctype="multipart/form-data">
   @csrf
 <div class="row">

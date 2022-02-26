@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('gender');
             $table->string('birth')->nullable();
             $table->double('class')->nullable();
+            $table->string('subject')->nullable();
             $table->string('join')->nullable();
             $table->double('mobile')->nullable();
             $table->string('email')->unique();

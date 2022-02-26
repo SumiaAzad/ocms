@@ -10,7 +10,11 @@ class DashboardController extends Controller
 {
     public function dash()
     {
-        $user=User::count();
-        return view('admin.layouts.dashboard',compact('user'));
+        $user = User::count();
+        $student=User::where('role','student')->count();
+        $teacher=User::where('role','teacher')->count();
+
+        // dd($user);
+        return view('admin.layouts.dashboard',compact('user','teacher','student'));
     }
 }

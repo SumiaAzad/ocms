@@ -8,8 +8,14 @@ use App\Models\Result;
 
 class ResultController extends Controller
 {
-    public function result()
+    public function result(Request $request)
     {
+        $search=$request->query('search');
+            if($search)
+            {
+                $data=Result::where('user_id','Like','%'.$search.'%')->get();
+                return view('admin.layouts.result',compact('data'));
+            }
         $data=Result::all();
 
         return view('admin.layouts.result',compact('data'));
@@ -65,7 +71,7 @@ class ResultController extends Controller
      public function delete($id)
     {
        Result::find($id)->delete();
-       return redirect()->back()->with('msg','Deleted');
+       return redirect()->back()->with('msg','Deleted')->with('msg','Result deleted successfully');
         
     }
 }

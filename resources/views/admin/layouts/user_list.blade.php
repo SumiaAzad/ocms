@@ -10,7 +10,7 @@
 <h1>User list</h1>
 
 <form action="{{route('admin.user.list')}}">
-<div class="input-group">
+<div class="input-group justify-content-end ">
   <div class="form-outline">
     <input type="text" name="search" class="form-control" placeholder="enter search">
     
@@ -37,7 +37,7 @@
     </thead>
     <tbody>
         @foreach ($users as $key=>$a)
-       
+
          <tr>
         <th scope="row">{{$key+1}}</th>
         <td>
@@ -66,7 +66,7 @@
 
         </td>
     </tr>   
-   
+
         @endforeach
     
     

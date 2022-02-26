@@ -23,6 +23,7 @@ class User extends Authenticatable
         'gender',
         'birth',
         'class',
+        'subject',
         'join',
         'mobile',
         'email',

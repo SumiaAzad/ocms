@@ -1,13 +1,16 @@
 <?php
 use App\Http\Controllers\website\HomeController;
+use App\Http\Controllers\website\AboutController;
 use App\Http\Controllers\website\LoginController;
 use App\Http\Controllers\website\ShowstudentController;
 use App\Http\Controllers\website\RoutineController as WebsiteRoutineController;
 use App\Http\Controllers\website\ProfileController;
 use App\Http\Controllers\website\TeacherprofileController;
 use App\Http\Controllers\website\TeacherLoginController;
+use App\Http\Controllers\website\TeacherRoutineController;
 use App\Http\Controllers\website\TeacherResultController;
 use App\Http\Controllers\website\StudentResultController;
+use App\Http\Controllers\website\WebAdminLoginController;
 
 
 
@@ -47,8 +50,13 @@ Route::get('/website', function () {
     return view('website.layouts.home');
 })->name('home');
 
-
+//home
 Route::get('/website/home',[HomeController::class,'home'])->name('website.home');
+
+
+//about
+Route::get('/website/about',[AboutController::class,'about'])->name('website.about');
+
 
 
 //student signup
@@ -63,18 +71,16 @@ Route::post('/user/do/login',[LoginController::class,'doLogin'])->name('user.do.
 Route::get('/user/logout',[LoginController::class,'logout'])->name('user.logout');
 
 
-//teacher login & logout
-Route::get('/teacher/login',[TeacherLoginController::class,'login'])->name('teacher.login');
-Route::post('/teacher/do/login',[TeacherLoginController::class,'doLogin'])->name('teacher.do.login');
-Route::get('/teacher/logout',[TeacherLoginController::class,'logout'])->name('teacher.logout');
-
 
 
 //routine
 Route::get('/website/routine',[websiteRoutineController::class,'routine'])->name('website.routine');
 
-//result
+
+
+//result & exam
 Route::get('/website/result',[StudentResultController::class,'result'])->name('website.result');
+Route::get('/website/exam',[StudentResultController::class,'exam'])->name('website.exam');
 
 
 
@@ -84,14 +90,15 @@ Route::get('/website/teacher/result',[TeacherResultController::class,'result'])-
 Route::get('/website/teacher/result/add',[TeacherResultController::class,'resultAdd'])->name('website.teacher.result.add');
    Route::post('/website/teacher/result/store',[TeacherResultController::class,'store'])->name('website.teacher.result.store');
    Route::get('/website/teacher/result/delete/{id}',[TeacherResultController::class,'delete'])->name('website.teacher.result.delete');
-   Route::get('/website/teacher/result/edit/{id}',[TeacherResultController::class,'edit'])->name('website.teacher.result.edit');
-   Route::put('/website/teacher/result/update/{id}',[TeacherResultController::class,'update'])->name('website.teacher.result.update');
+   
+
+//techer routine and exam routine
+Route::get('/website/teacher/routine',[TeacherRoutineController::class,'routine'])->name('website.teacher.routine');
+Route::get('/website/teacher/exam',[TeacherRoutineController::class,'exam'])->name('website.teacher.exam');
 
 
 
 
-//exam
-Route::get('/website/exam',[StudentResultController::class,'exam'])->name('website.exam');
 
 
 //profile
@@ -131,7 +138,8 @@ Route::group(['middleware'=>['auth','admin']],function(){
 
   //dashboard
     Route::get('/admin/dashboard',[DashboardController::class,'dash'])->name('admin.dashboard');
-  
+
+
   
     //user
     Route::get('/admin/user/list',[UserController::class,'userList'])->name('admin.user.list');

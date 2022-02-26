@@ -2,7 +2,7 @@
 @section('content')
 
 
-<div class="container">
+<div class="container my-5">
 
 <a href="{{route('website.teacher.result.add')}}" class="btn btn-primary">Add result</a>
 <table class="table">
@@ -28,11 +28,20 @@
       <td>{{$a->user_id}}</td>
       <td>{{$a->class}}</td>
       <td>{{$a->subject}}</td>
-      <td>{{$a->grade}}</td>
-      <td>{{$a->status}}</td>
+      <td>
+      @if($a->grade <= '100' && $a->grade >= '90')<a href="">A</a>
+        @elseif($a->grade <= '89' && $a->grade >='80')<a href="">B</a>
+        @elseif($a->grade <= '79' && $a->grade >= '70')<a href="">C</a>
+        @elseif($a->grade <= '69' && $a->grade >= '60')<a href="">D</a>
+        @else($a->grade <= '59' && $a->grade >= '00')<a href="">F</a>
+        
+        @endif
+      </td>
+      <td>{{$a->status}}
+     
+      </td>
       <td>
       <a class="btn btn-danger" href="{{route('website.teacher.result.delete',$a->id)}}">Delete</a>
-        <a class="btn btn-success" href="{{route('website.teacher.result.edit',$a->id)}}">Edit</a>
       </td>
     </tr>
     @endforeach

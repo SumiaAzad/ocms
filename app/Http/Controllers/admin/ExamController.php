@@ -8,8 +8,14 @@ use App\Models\Exam;
 
 class ExamController extends Controller
 {
-    public function exam()
+    public function exam(Request $request)
     {
+        $search=$request->query('search');
+            if($search)
+            {
+                $exam=Exam::where('class','Like','%'.$search.'%')->get();
+                return view('admin.layouts.exam',compact('exam'));
+            }
         $exam=Exam::all();
         return view('admin.layouts.exam',compact('exam'));
     }
@@ -74,7 +80,7 @@ class ExamController extends Controller
     public function delete($id)
    {
       Exam::find($id)->delete();
-      return redirect()->back()->with('msg','Deleted');
+      return redirect()->back()->with('msg','Deleted')->with('msg','Exam deleted successfully');
        
    }
 }

@@ -43,14 +43,20 @@
 
 
 
-@include('website.fixed.footer')
 
 
 
 </div>
 
 
-<a href="#" class="back-to-top bounce"><i class="las la-arrow-up"></i></a>
+
+<footer>
+@include('website.fixed.footer')
+</footer>
+
+
+
+<!-- <a href="#" class="back-to-top bounce"><i class="las la-arrow-up"></i></a> -->
 
 
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

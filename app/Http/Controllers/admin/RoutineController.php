@@ -64,7 +64,7 @@ class RoutineController extends Controller
     public function delete($id)
    {
       Routine::find($id)->delete();
-      return redirect()->back()->with('msg','Deleted');
+      return redirect()->back()->with('msg','Deleted')->with('msg','Routine deleted successfully');
        
    }
 }

@@ -7,8 +7,23 @@
     {{session()->get('msg')}}
 </p>
 @endif
-
 <a href="{{route('admin.result.add')}}" class="btn btn-primary">Add result</a>
+
+<form action="{{route('admin.result')}}" >
+<div class="input-group justify-content-end ">
+  <div class="form-outline " >
+    <input type="text" name="search" class="form-control " placeholder="enter search">
+    
+  </div>
+  <button type="submit" class="btn btn-primary">
+   submit
+  </button>
+  
+</div>
+
+</form>
+
+
 <table class="table">
   <thead>
     <tr>

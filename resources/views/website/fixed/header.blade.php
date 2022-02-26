@@ -10,83 +10,86 @@
             </div>
             <div class="col-lg-6">
             </div>
-            
+
         </div>
     </div>
     </div>
-    <div class="header-bottom" style="background-color: #C5C4DF">
-        <div class="container" >
+    <div class="header-bottom py-3 border-bottom border-5" style="background-color: #7F8C8D">
+        <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-2 col-md-4 col-6 order-lg-1 order-md-1 order-1">
                     <!-- <div class="logo">
                         <a href="index.html"><img src="{{('/img/logo.png')}}" alt="Image"></a>
                     </div> -->
                 </div>
-                <div>
-                <!-- <div class="col-lg-6 col-md-3 col-6 order-lg-2 order-md-3 order-3"> -->
-                    <div class="main-menu-wrap style1">
+                <div class="">
+                    <!-- <div class="col-lg-6 col-md-3 col-6 order-lg-2 order-md-3 order-3"> -->
+                    <div class="main-menu-wrap style1 ">
                         <div class="menu-close xl-none">
                             <a href="javascript:void(0)"><i class="las la-times"></i></a>
                         </div>
-                        <div id="menu" class="text-left">
-                        <div class="logo">
-                        <a href="index.html"><img src="{{('/img/logo.png')}}" alt="Image"></a>
-                    </div>
-                            <ul class="main-menu " >
+                        <div id="menu" class="text-left d-flex justify-content-around align-items-center">
+                            <div class="logo">
+                                <a href="index.html"><img src="{{url('/img/logo-web.png')}}" alt="Image" width="70px" class="rounded-circle"></a>
+                            </div>
+                            <ul class="main-menu ">
                                 <li>
                                     <a href="{{route('website.home')}}">HOME</a>
 
                                 </li>
-                                <li class="has-children">
-                                    <a href="">Student</a>
-                                    <ul class="sub-menu">
-                                        <li><a style="background-color:blue"
-                                                href="{{route('website.student.signup')}}">Sign Up</a></li>
-                                    </ul>
+                                
+
+                                <li class=""><a href="{{route('website.about')}}">About Us</a>
+                                    
+                                </li>
+                                <li><a href="{{route('website.student.signup')}}">Registration</a></li>
+
+
+
+                                @if(auth()->user() && auth()->user()->role == "student")
+                                    @if(auth()->user())
+                                    <li><a  href="{{route('website.routine')}}">Routine</a></li>
+                                    <li><a href="{{route('website.profile')}}">Profile</a></li>
+                                    <li><a  href="{{route('website.result')}}">Result</a></li>
+                                    <li><a  href="{{route('website.exam')}}">Exam</a></li>
+                                    <li ><a  href="{{route('user.logout')}}">logout</a> </li>
+
+                                    @else
+                                     <li><a href="{{route('user.login')}}">Login</a></li>
+                                          
+                                    @endif
+
+                                @else
+                                    @if(auth()->user())
+                                    <li><a  href="{{route('website.teacherprofile')}}">Profile</a></li>
+                                    <li><a  href="{{route('website.teacher.routine')}}">Routine</a></li>
+                                    <li><a  href="{{route('website.teacher.exam')}}">exam</a></li>
+
+                                    <li><a  href="{{route('website.teacher.result')}}">Result</a></li>
+                                    <li><a  href="{{route('user.logout')}}">logout</a></li>
+
+                                    @else
+                                    <li><a href="{{route('user.login')}}"> User Login</a></li>
+   
+                                    @endif
+
+
+                                @endif
+
+
+                                <li>
+                                    <a href="{{route('admin.login')}}">Admin Login</a>
 
                                 </li>
 
-                                <li class="has-children"><a href="#">About Us</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="contact.html">CONTACT</a></li>
-                                        <li><a href="teacher.html">TEACHER</a></li>
-                                        <li><a href="pricing-plan.html">PRICING PLAN</a></li>
-                                        <li><a href="testimonial.html">TESTIMONIALS</a></li>
-                                        <li><a href="faq.html">FAQ</a></li>
-                                        <li><a href="privacy-policy.html">PRIVACY POLICY</a></li>
-                                        <li><a href="terms-condition.html">TERMS &AMP; CONDITIONS</a></li>
-                                        <li><a href="404.html">404</a></li>
-                                    </ul>
-                                </li>
-
-                                @if(auth()->user())
-                            
-                                <a style="background-color: #e7e7e7;" href="{{route('user.logout')}}">logout</a>
-                                <a class="btn btn-light" href="{{route('website.routine')}}">Routine</a>
-                                <a class="btn btn-primary" href="{{route('website.profile')}}">Profile</a>
-                                <a class="btn btn-primary" href="{{route('website.result')}}">Result</a>
-                                <a class="btn btn-primary" href="{{route('website.exam')}}">Exam</a>
-                                @else
-                                    <a href="{{route('user.login')}}">Login</a>
-                            @endif
-        
-
-                            @if(auth()->user())
-                            <a style="background-color: #e7e7e7;" href="{{route('teacher.logout')}}">logout</a>
-                               
-                                <a class="btn btn-primary" href="{{route('website.teacherprofile')}}">Profile</a>
-                                <a class="btn btn-primary" href="{{route('website.teacher.result')}}">Result</a>
-                                @else
-                                    <a href="{{route('teacher.login')}}"> Teacher Login</a>
-                            @endif
-
-
+                                
 
                             </ul>
                             </li>
                             </ul>
                         </div>
                     </div>
+
                     <div class="mobile-bar-wrap">
                         <div class="sidebar-menu xl-none">
                             <i class="ri-equalizer-line"></i>

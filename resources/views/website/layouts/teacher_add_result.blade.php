@@ -2,7 +2,7 @@
 @section('content')
 
 
-<div class="container">
+<div class="container my-5">
 
 <form action="{{route('website.teacher.result.store')}}" method='post'>
   @csrf
@@ -32,7 +32,7 @@
     <input required name='subject' type="text" class="form-control" id="exampleInputPassword1">
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Grade</label>
+    <label for="exampleInputPassword1" class="form-label">Marks</label>
     <input required name='grade' type="text" class="form-control" id="exampleInputPassword1">
   </div>
   <div class="mb-3">
@@ -45,6 +45,7 @@
 <option>Poor</option>
 </select>
   </div>
+  
   
   
   <button type="submit" class="btn btn-primary">Submit</button>

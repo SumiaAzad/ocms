@@ -123,7 +123,7 @@ class StudentsController extends Controller
    public function delete($id)
    {
       User::find($id)->delete();
-      return redirect()->back()->with('msg','Deleted');
+      return redirect()->back()->with('msg','Deleted')->with('msg','Student deleted successfully');
        
    }
   

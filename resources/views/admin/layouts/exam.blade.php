@@ -6,8 +6,23 @@
     {{session()->get('msg')}}
 </p>
 @endif
-
 <a href="{{route('admin.exam.add')}}" class="btn btn-primary">Add exam</a>
+
+<form action="{{route('admin.exam')}}" >
+<div class="input-group justify-content-end ">
+  <div class="form-outline " >
+    <input type="text" name="search" class="form-control " placeholder="enter search">
+    
+  </div>
+  <button type="submit" class="btn btn-primary">
+   submit
+  </button>
+  
+</div>
+
+</form>
+
+
 <table class="table table-dark table-hover">
   <thead>
     <tr>
